@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #0B1D3A;
+  --gold: #C89B3C;
+  --off-white: #F5F7FA;
+  --slate: #6B7280;
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased text-navy bg-offWhite;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-header uppercase leading-none;
+  }
+}
+
+@layer components {
+  .btn-premium {
+    @apply inline-flex items-center justify-center bg-gold text-navy font-black uppercase tracking-widest py-3 px-8 rounded-full shadow-lg transition-all duration-300 hover:bg-[#d4a849] hover:-translate-y-0.5 hover:shadow-xl hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center border-2 border-navy text-navy font-black uppercase tracking-widest py-3 px-8 rounded-full transition-all duration-300 hover:bg-navy hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2;
+  }
+
+  .container-tight {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .logo-glow {
+    filter: drop-shadow(0 0 10px rgba(200, 155, 60, 0.4));
+  }
+}
