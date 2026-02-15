@@ -16,75 +16,87 @@ interface AlumniMember {
   note: string;
   category: AlumniFilter;
   image?: string;
+  imagePosition?: string;
 }
 
 const alumniData: AlumniMember[] = [
-  { 
-    name: 'Jordan Williams', 
-    year: '2022', 
-    school: 'Virginia Tech', 
-    sport: 'Basketball', 
-    note: 'Starting guard, averaged 14.2 PPG as sophomore',
-    category: 'COLLEGE BASKETBALL'
+  {
+    name: 'Sira Thienou',
+    year: '2024',
+    school: 'Ole Miss',
+    sport: 'WBB',
+    note: '2024-25 SEC All-Freshman selection; led all Power 4 freshmen in steals.',
+    category: 'COLLEGE BASKETBALL',
+    image: '/alumni/Sira_Thienou.webp',
+    imagePosition: 'object-top'
   },
-  { 
-    name: 'Taylor Chen', 
-    year: '2021', 
-    school: 'Duke University', 
-    sport: 'Basketball', 
-    note: "Dean's List, Computer Science major",
-    category: 'ACADEMICS'
+  {
+    name: 'Harissoum Coulibaly',
+    year: '2025',
+    school: 'Auburn',
+    sport: 'WBB',
+    note: 'Leading Auburn in scoring as a true freshman; known for her "Paris to the SEC" journey.',
+    category: 'COLLEGE BASKETBALL',
+    image: '/alumni/Harissoum_Coulibaly.webp',
+    imagePosition: 'object-top'
   },
-  { 
-    name: 'Marcus Thompson', 
-    year: '2023', 
-    school: 'UNC Chapel Hill', 
-    sport: 'Basketball', 
-    note: 'Freshman All-ACC Honorable Mention',
-    category: 'COLLEGE BASKETBALL'
+  {
+    name: 'A.J. Wills',
+    year: '2023',
+    school: 'Hofstra',
+    sport: 'MBB',
+    note: 'Dynamic playmaker who transferred to Hofstra in 2025; originally a standout at Holy Cross.',
+    category: 'COLLEGE BASKETBALL',
+    image: '/alumni/AJ_Wills.webp',
+    imagePosition: 'object-top'
   },
-  { 
-    name: 'Sarah Mitchell', 
-    year: '2020', 
-    school: 'Stanford University', 
-    sport: 'Basketball', 
-    note: 'Rhodes Scholar finalist, now at Google',
-    category: 'ACADEMICS'
+  {
+    name: 'Melissa Mwanza',
+    year: '2023',
+    school: 'Stony Brook',
+    sport: 'WBB',
+    note: "Powerful frontcourt presence; transferred from Richmond/LA Tech to anchor the Seawolves' defense.",
+    category: 'COLLEGE BASKETBALL',
+    image: '/alumni/melissa.webp',
+    imagePosition: 'object-top'
   },
-  { 
-    name: 'Andre Jackson', 
-    year: '2022', 
-    school: 'Georgetown University', 
-    sport: 'Basketball', 
-    note: 'Team captain, Business Analytics major',
-    category: 'POSTGRADUATE'
+  {
+    name: 'Papa Kounta',
+    year: '2024',
+    school: 'Triton College',
+    sport: 'MBB',
+    note: 'Averaging a near double-double (14.3 PPG, 8.0 RPG) for the NJCAA powerhouse Trojans.',
+    category: 'COLLEGE BASKETBALL',
+    image: '/alumni/Papa_Kounta.webp'
   },
-  { 
-    name: 'Emma Rodriguez', 
-    year: '2021', 
-    school: 'Yale University', 
-    sport: 'Basketball', 
-    note: '3.9 GPA, Pre-Med track',
-    category: 'ACADEMICS'
+  {
+    name: 'Nehir Safkan',
+    year: '2025',
+    school: 'Harford CC',
+    sport: 'WBB',
+    note: 'Prolific scorer; recently dropped 31 points in a single game for the Fighting Owls.',
+    category: 'COLLEGE BASKETBALL',
+    image: '/alumni/Nehir_Safkan.webp',
+    imagePosition: 'object-top'
   }
 ];
 
 export const Alumni: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<AlumniFilter>('ALL');
 
-  const filteredAlumni = activeFilter === 'ALL' 
-    ? alumniData 
+  const filteredAlumni = activeFilter === 'ALL'
+    ? alumniData
     : alumniData.filter(item => item.category === activeFilter);
 
   return (
     <div className="bg-white font-body text-navy min-h-screen">
-      
+
       {/* ================= ALUMNI HERO ================= */}
       <section className="relative py-24 bg-navy overflow-hidden border-b-8 border-gold">
         <div className="absolute inset-0 opacity-20">
-          <img 
-            src="https://images.unsplash.com/photo-1523240715639-692452069721?q=80&w=2070" 
-            alt="Graduation Background" 
+          <img
+            src="https://images.unsplash.com/photo-1523240715639-692452069721?q=80&w=2070"
+            alt="Graduation Background"
             className="w-full h-full object-cover grayscale hero-zoom"
           />
         </div>
@@ -107,18 +119,17 @@ export const Alumni: React.FC = () => {
           <h2 className="text-5xl font-header text-navy uppercase tracking-tight mb-2">Alumni Spotlight</h2>
           <p className="text-slate-500 font-medium text-lg">Our alumni continue to excel in college athletics, academics, and beyond.</p>
         </div>
-        
+
         {/* Navigation Tabs - Skewed per screenshots */}
         <div className="flex flex-wrap justify-center gap-2 mb-16">
           {(['ALL', 'COLLEGE BASKETBALL', 'ACADEMICS', 'POSTGRADUATE'] as AlumniFilter[]).map((filter) => (
-            <button 
+            <button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              className={`px-10 py-3 font-header text-lg uppercase tracking-widest border transition-all transform -skew-x-12 ${
-                activeFilter === filter 
-                  ? 'bg-gold border-gold text-navy shadow-lg z-10' 
-                  : 'bg-white border-slate-300 text-navy hover:border-gold hover:text-gold'
-              }`}
+              className={`px-10 py-3 font-header text-lg uppercase tracking-widest border transition-all transform -skew-x-12 ${activeFilter === filter
+                ? 'bg-gold border-gold text-navy shadow-lg z-10'
+                : 'bg-white border-slate-300 text-navy hover:border-gold hover:text-gold'
+                }`}
             >
               <span className="inline-block transform skew-x-12">{filter}</span>
             </button>
@@ -134,7 +145,7 @@ export const Alumni: React.FC = () => {
                   {/* Spot for Alumni Picture - Circle as requested */}
                   <div className="w-16 h-16 bg-slate-100 rounded-full overflow-hidden flex-shrink-0 border-2 border-slate-50 group-hover:border-gold transition-colors relative">
                     {alumni.image ? (
-                      <img src={alumni.image} alt={alumni.name} className="w-full h-full object-cover" />
+                      <img src={alumni.image} alt={alumni.name} className={`w-full h-full object-cover ${alumni.imagePosition || 'object-center'}`} />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">
                         <Icon icon="solar:user-circle-bold-duotone" className="text-slate-300 w-12 h-12" />
@@ -173,7 +184,7 @@ export const Alumni: React.FC = () => {
             <h2 className="text-5xl font-header text-navy uppercase tracking-tight mb-2">Submit an Alumni Update</h2>
             <p className="text-slate-500 font-medium text-lg italic">Let us know what you've been up to! We'd love to celebrate your achievements.</p>
           </div>
-          
+
           <form className="bg-white p-12 rounded-2xl border border-slate-200 shadow-2xl space-y-6">
             <div className="space-y-1">
               <label className="block text-[11px] font-black uppercase tracking-widest text-slate-400">Full Name *</label>
