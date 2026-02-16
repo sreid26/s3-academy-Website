@@ -11,7 +11,7 @@ const S3_BRAND = {
 const IMAGES = {
   hero: "/assets/images/students-classroom.png",
   middleSchool: "/assets/images/students-classroom.png",
-  highSchool: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1000",
+  highSchool: "/students/S3_Students_HighSchool.png",
   // Updated for a more "Elite / Future" feel for Postgrad
   postGrad: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=1000"
 };
