@@ -3,7 +3,7 @@ import React from 'react';
 interface S3LogoProps {
   className?: string;
   variant?: 'gold' | 'white' | 'navy';
-  size?: 'sm' | 'md' | 'lg' | 'xl';
+  size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
   showText?: boolean;
 }
 
@@ -18,9 +18,10 @@ export const S3Logo = ({
     md: "w-10 h-10",
     lg: "w-14 h-14",
     xl: "w-16 h-16",
+    "2xl": "w-32 h-32",
+    "3xl": "w-48 h-48",
+    "4xl": "w-60 h-60",
   } as const;
-
-
 
   return (
     <div className={`flex items-center gap-5 ${className}`}>
@@ -37,7 +38,8 @@ export const S3Logo = ({
           <span className={`font-header leading-[0.85] tracking-tighter italic uppercase ${variant === 'navy' ? 'text-navy' : 'text-white'} 
             ${size === 'sm' ? 'text-base' :
               size === 'md' ? 'text-lg' :
-                size === 'lg' ? 'text-xl' : 'text-2xl'}`}>
+                size === 'lg' ? 'text-xl' :
+                  size === 'xl' ? 'text-2xl' : 'text-4xl'}`}>
             S3 <span className="text-gold">Academy</span>
           </span>
           <span className={`text-gold font-black uppercase tracking-[0.4em] mt-0.5 ${size === 'sm' ? 'text-[5px]' : 'text-[7px]'}`}>Excellence Re-Engineered</span>

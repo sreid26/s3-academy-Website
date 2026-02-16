@@ -10,6 +10,7 @@ import { Contact } from './views/Contact';
 import { Academics } from './views/Academics';
 import { Alumni } from './views/Alumni';
 import { Donate } from './views/Donate';
+import { Enrollment } from './views/Enrollment';
 
 const App: React.FC = () => {
   return (
@@ -25,6 +26,7 @@ const App: React.FC = () => {
           <Route path="/alumni" element={<Alumni />} />
           <Route path="/donate" element={<Donate />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/enrollment" element={<Enrollment />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Layout>
