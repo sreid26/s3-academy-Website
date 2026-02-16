@@ -9,8 +9,8 @@ const S3_BRAND = {
 
 // Verified high-availability Unsplash IDs
 const IMAGES = {
-  hero: "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&q=80&w=1600",
-  middleSchool: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=1000",
+  hero: "/assets/images/students-classroom.png",
+  middleSchool: "/assets/images/students-classroom.png",
   highSchool: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1000",
   // Updated for a more "Elite / Future" feel for Postgrad
   postGrad: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=1000"
@@ -91,24 +91,54 @@ export const Academics: React.FC = () => {
     <div className="bg-white font-body text-navy min-h-screen">
 
       {/* ================= HERO SECTION ================= */}
-      <section className="relative py-32 bg-navy overflow-hidden border-b-8 border-gold">
-        <div className="absolute inset-0 opacity-20">
+      <section className="relative min-h-[90vh] flex items-center justify-center bg-navy overflow-hidden border-b-8 border-gold">
+
+        {/* Background Image - Improved Visibility */}
+        <div className="absolute inset-0 z-0">
           <img
             src={IMAGES.hero}
             alt="Academy Excellence"
-            className="w-full h-full object-cover grayscale hero-zoom"
+            className="w-full h-full object-cover opacity-40"
           />
+          {/* Gradient Overlay for Text Readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy/60 to-navy/90 mix-blend-multiply"></div>
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
-          <h4 className="text-gold font-black uppercase tracking-[0.4em] mb-4">
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 flex flex-col items-center text-center">
+
+          {/* S3 Logo */}
+          <div className="mb-8 animate-fade-in-down">
+            <img
+              src="/assets/images/s3_logo_main.png"
+              alt="S3 Academy Logo"
+              className="h-24 md:h-32 w-auto drop-shadow-2xl"
+            />
+          </div>
+
+          <h4 className="text-gold font-black uppercase tracking-[0.4em] mb-4 drop-shadow-lg text-lg md:text-xl">
             The Foundation
           </h4>
-          <h1 className="text-7xl md:text-[9rem] font-header text-white uppercase italic tracking-tighter leading-none mb-8">
-            Academic <br /> <span className="text-gold">Excellence</span>
+
+          <h1 className="text-6xl md:text-8xl lg:text-[9rem] font-header text-white uppercase italic tracking-tighter leading-none mb-8 drop-shadow-2xl">
+            Academic <span className="text-gold relative inline-block">
+              Excellence
+              <span className="absolute -bottom-2 left-0 w-full h-2 md:h-3 bg-gold transform -skew-x-12 shadow-[0_0_20px_rgba(200,155,60,0.6)]"></span>
+            </span>
           </h1>
-          <p className="mt-6 text-slate-300 max-w-2xl mx-auto text-xl font-medium leading-relaxed italic">
+
+          <p className="mt-8 text-slate-200 max-w-3xl mx-auto text-xl md:text-2xl font-medium leading-relaxed drop-shadow-md">
             Our rigorous curriculum is designed to prepare student-athletes for success at the collegiate level and beyond.
           </p>
+
+          {/* CTAs */}
+          <div className="mt-12 flex flex-col md:flex-row gap-6 w-full justify-center">
+            <SkewedButton variant="gold" onClick={() => window.location.href = '/admissions'}>
+              Apply Now
+            </SkewedButton>
+            <SkewedButton variant="outline" className="border-white text-white hover:bg-white hover:text-navy" onClick={() => window.location.href = '/visit'}>
+              Schedule a Tour
+            </SkewedButton>
+          </div>
         </div>
       </section>
 

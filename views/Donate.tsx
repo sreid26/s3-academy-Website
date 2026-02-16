@@ -41,7 +41,7 @@ const sponsorPackages: SponsorPackage[] = [
     buttonText: "Become a Silver Sponsor"
   },
   {
-    title: "Platinum Sponsor",
+    title: "Gold Sponsor",
     price: "$7,500",
     bestFor: "premium visibility + gym presence",
     benefits: [
@@ -51,10 +51,10 @@ const sponsorPackages: SponsorPackage[] = [
       "Flyers available for distribution at games",
       "Personalized sponsor banner displayed in the gym"
     ],
-    buttonText: "Become a Platinum Sponsor"
+    buttonText: "Become a Gold Sponsor"
   },
   {
-    title: "Gold Elite Sponsor",
+    title: "Platinum Sponsor",
     price: "$10,000",
     bestFor: "maximum exposure + top-tier branding",
     benefits: [
@@ -64,37 +64,72 @@ const sponsorPackages: SponsorPackage[] = [
       "Logo + link included in S3 email communications",
       "Personalized sponsor banner displayed in the gym"
     ],
-    buttonText: "Become a Gold Elite Sponsor",
+    buttonText: "Become a Platinum Sponsor",
     featured: true
   }
 ];
 
-export const Donate: React.FC = () => {
-  const [selectedAmount, setSelectedAmount] = useState<string>('$100');
+export const Donate = () => {
+  const [selectedAmount, setSelectedAmount] = useState('$100');
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const amounts = ['$25', '$50', '$100', 'Custom'];
+
+  const heroImages = [
+    '/students/S3BoyTeam.jpg',
+    '/students/S3GirlTeam.jpg'
+  ];
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="bg-[#0B1A2A] min-h-screen font-body text-white">
 
       {/* ================= HERO SECTION ================= */}
-      <section className="relative py-24 bg-[#001F3F] overflow-hidden border-b-8 border-gold">
-        <div className="absolute inset-0 opacity-20">
-          <img
-            src="https://images.unsplash.com/photo-1504450758481-7338eba7524a?q=80&w=2069"
-            alt="Gym Action at Shining Star Academy"
-            className="w-full h-full object-cover grayscale hero-zoom"
-          />
+      <section className="relative w-full aspect-video flex flex-col justify-end items-center bg-black overflow-hidden border-b-8 border-gold" style={{ aspectRatio: '16/9' }}>
+
+        {/* Background Slideshow */}
+        <div className="absolute inset-0 z-0">
+          {heroImages.map((src, index) => (
+            <img
+              key={src}
+              src={src}
+              alt="S3 Academy Team"
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'}`}
+            />
+          ))}
+
+          {/* Gradient Overlay - Bottom fade for text readability */}
+          <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
-          <h4 className="font-black uppercase tracking-[0.4em] mb-4 text-gold animate-pulse">
-            Invest in Excellence
-          </h4>
-          <h1 className="text-6xl md:text-[8rem] font-header text-white uppercase italic tracking-tighter leading-none mb-8">
-            Fuel the <br /> <span className="text-gold">Dream</span>
-          </h1>
-          <p className="mt-6 text-slate-300 max-w-2xl mx-auto text-xl font-medium leading-relaxed italic border-l-4 border-gold/50 pl-6">
-            Your support provides the tools for elite student-athletes to excel in the classroom and dominate on the court at Shining Star Academy.
-          </p>
+
+        <div className="absolute inset-x-0 bottom-0 z-10 w-full text-center pb-4 md:pb-8 lg:pb-12 px-4">
+          <div className="animate-fade-in-up">
+            {/* Eyebrow */}
+            <h4 className="font-black uppercase tracking-[0.4em] mb-1 md:mb-2 text-gold drop-shadow-md text-[10px] md:text-sm lg:text-base">
+              Invest in Excellence
+            </h4>
+
+            {/* Main Headline */}
+            <h1 className="text-4xl md:text-7xl lg:text-[7rem] font-header text-white uppercase italic tracking-tighter leading-none mb-2 md:mb-4 drop-shadow-2xl px-4">
+              Fuel the <br className="md:hidden" /> <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#C89B3C] via-[#FFD700] to-[#C89B3C] drop-shadow-sm pr-8 pb-2">Dream</span>
+            </h1>
+
+            {/* Subtext and Button */}
+            <div className="flex flex-col items-center gap-3 md:gap-6">
+              <p className="text-slate-300 max-w-2xl mx-auto text-xs md:text-xl font-medium leading-relaxed drop-shadow-md hidden md:block">
+                Your support builds the future for our student-athletes.
+              </p>
+
+              <SkewedButton variant="gold" className="shadow-2xl shadow-gold/20 scale-75 md:scale-100" onClick={() => document.getElementById('donation-portal')?.scrollIntoView({ behavior: 'smooth' })}>
+                Make a Donation
+              </SkewedButton>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -152,11 +187,11 @@ export const Donate: React.FC = () => {
             <p className="text-slate-500 font-medium italic text-lg max-w-2xl mx-auto">Align your brand with excellence and support the next generation of leaders and champions.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-24 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 mb-24 items-stretch">
             {sponsorPackages.map((pkg, idx) => (
               <div
                 key={idx}
-                className={`relative flex flex-col bg-white p-8 rounded-2xl shadow-xl transition-all duration-500 hover:-translate-y-2 border-2 ${pkg.featured ? 'border-gold scale-105 z-10' : 'border-transparent hover:border-slate-100'}`}
+                className={`relative flex flex-col bg-white p-8 rounded-2xl shadow-xl transition-all duration-500 hover:-translate-y-2 border-2 ${pkg.featured ? 'border-gold' : 'border-transparent hover:border-slate-100'}`}
               >
                 {pkg.featured && (
                   <div className="absolute top-0 right-0 bg-gold text-navy font-black text-[10px] px-4 py-1 rounded-bl-xl rounded-tr-xl uppercase tracking-widest z-20">
@@ -183,8 +218,8 @@ export const Donate: React.FC = () => {
 
                 <button
                   className={`w-full py-4 font-header text-xl uppercase tracking-widest transition-all rounded-lg focus:outline-none focus:ring-4 focus:ring-gold/50 ${pkg.featured
-                      ? 'bg-gold text-navy shadow-lg hover:bg-[#b88d35]'
-                      : 'bg-navy text-white hover:bg-[#1a2d4d]'
+                    ? 'bg-gold text-navy shadow-lg hover:bg-[#b88d35]'
+                    : 'bg-navy text-white hover:bg-[#1a2d4d]'
                     }`}
                   aria-label={`Inquire about ${pkg.title} sponsorship at ${pkg.price}`}
                 >
@@ -255,7 +290,7 @@ export const Donate: React.FC = () => {
       </section>
 
       {/* ================= SECURE DONATION PORTAL (Individual Giving) ================= */}
-      <section className="py-24 bg-navy relative overflow-hidden border-y border-white/5 shadow-2xl">
+      <section id="donation-portal" className="py-24 bg-navy relative overflow-hidden border-y border-white/5 shadow-2xl">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gold transform skew-x-12 translate-x-32 opacity-5"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
@@ -302,8 +337,8 @@ export const Donate: React.FC = () => {
                     onClick={() => setSelectedAmount(amt)}
                     aria-pressed={selectedAmount === amt}
                     className={`py-4 border-2 font-header text-2xl uppercase tracking-widest transition-all rounded-lg transform active:scale-95 focus:outline-none focus:ring-2 focus:ring-gold/50 ${selectedAmount === amt
-                        ? 'bg-navy text-white border-navy shadow-lg'
-                        : 'bg-white text-navy border-slate-200 hover:border-gold'
+                      ? 'bg-navy text-white border-navy shadow-lg'
+                      : 'bg-white text-navy border-slate-200 hover:border-gold'
                       }`}
                   >
                     {amt}

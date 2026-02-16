@@ -92,24 +92,35 @@ export const Alumni: React.FC = () => {
     <div className="bg-white font-body text-navy min-h-screen">
 
       {/* ================= ALUMNI HERO ================= */}
-      <section className="relative py-24 bg-navy overflow-hidden border-b-8 border-gold">
-        <div className="absolute inset-0 opacity-20">
+      <section className="relative w-full aspect-video flex flex-col justify-end items-center bg-navy overflow-hidden border-b-8 border-gold" style={{ aspectRatio: '16/9' }}>
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1523240715639-692452069721?q=80&w=2070"
-            alt="Graduation Background"
-            className="w-full h-full object-cover grayscale hero-zoom"
+            src="/alumni/S3_Alumni.png"
+            alt="S3 Academy Alumni"
+            className="w-full h-full object-cover"
           />
+          {/* Gradient Overlay - Bottom fade for text readability */}
+          <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-navy via-navy/60 to-transparent"></div>
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
-          <h4 className="font-black uppercase tracking-[0.4em] mb-4 text-gold">
-            The S3 Legacy
-          </h4>
-          <h1 className="text-6xl md:text-9xl font-header text-white uppercase italic tracking-tighter leading-none mb-8">
-            Champions <br /> <span className="text-gold">Beyond</span> S3
-          </h1>
-          <p className="mt-6 text-slate-300 max-w-2xl mx-auto text-xl font-medium leading-relaxed italic">
-            Our alumni continue to excel in college athletics, academics, and professional leadership across the globe.
-          </p>
+
+        <div className="absolute inset-x-0 bottom-0 z-10 w-full text-center pb-4 md:pb-8 lg:pb-12 px-4">
+          <div className="animate-fade-in-up">
+            {/* Eyebrow */}
+            <h4 className="font-black uppercase tracking-[0.4em] mb-1 md:mb-2 text-gold drop-shadow-md text-[10px] md:text-sm lg:text-base">
+              The S3 Legacy
+            </h4>
+
+            {/* Main Headline */}
+            <h1 className="text-3xl md:text-6xl lg:text-[8rem] font-header text-white uppercase italic tracking-tighter leading-none mb-2 md:mb-4 drop-shadow-2xl px-4">
+              Champions <br /> <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#C89B3C] via-[#FFD700] to-[#C89B3C] drop-shadow-sm pr-8 pb-2">Beyond S3</span>
+            </h1>
+
+            {/* Subtext */}
+            <p className="text-slate-300 max-w-2xl mx-auto text-xs md:text-xl font-medium leading-relaxed drop-shadow-md hidden md:block">
+              Our alumni continue to excel in college athletics, academics, and professional leadership across the globe.
+            </p>
+          </div>
         </div>
       </section>
 
