@@ -79,7 +79,7 @@ export const Layout = ({ children }: LayoutProps) => {
           {/* CTA Action - Desktop (Renamed to match user request: APPLY) */}
           <div className="hidden xl:block flex-shrink-0 ml-8">
             <Link
-              to="/admissions"
+              to="/enrollment"
               className="btn-premium py-2.5 px-6 lg:px-8 text-[10px] lg:text-[11px]"
             >
               APPLY NOW
@@ -89,7 +89,7 @@ export const Layout = ({ children }: LayoutProps) => {
           {/* Mobile UI Group */}
           <div className="xl:hidden ml-auto flex items-center gap-4">
             <Link
-              to="/admissions"
+              to="/enrollment"
               className="bg-gold text-navy text-[10px] font-black uppercase tracking-widest py-2 px-4 rounded-full shadow-lg active:scale-95 transition-transform"
             >
               APPLY
@@ -123,7 +123,7 @@ export const Layout = ({ children }: LayoutProps) => {
               </NavLink>
             ))}
             <Link
-              to="/admissions"
+              to="/enrollment"
               className="btn-premium w-full mt-4 py-4 text-base"
             >
               START APPLICATION

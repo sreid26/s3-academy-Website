@@ -77,7 +77,7 @@ export const Admissions: React.FC = () => {
                   variant="gold"
                   className="w-full text-xl md:text-3xl py-5 md:py-6 shadow-[0_20px_50px_rgba(200,155,60,0.4)] hover:scale-[1.03] active:scale-[0.98] hover:bg-[#dcb050] transition-all duration-300 group"
                   aria-label="Start your application for S3 Academy"
-                  onClick={() => window.location.href = '/enrollment#enrollment-form'}
+                  onClick={() => window.location.href = '/enrollment'}
                 >
                   START APPLICATION
                   <Icon icon="solar:arrow-right-bold" className="w-6 h-6 md:w-8 md:h-8 group-hover:translate-x-3 transition-transform" />

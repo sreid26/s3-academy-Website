@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { Icon } from '@iconify/react';
 import { SkewedButton } from './components/SkewedButton';
 import { S3Logo } from './components/S3Logo';
+import AdmissionsPortal from './components/AdmissionsPortal';
 
 export const Enrollment: React.FC = () => {
     const formSectionRef = useRef<HTMLDivElement>(null);
@@ -125,39 +126,10 @@ export const Enrollment: React.FC = () => {
                 </div>
             </section>
 
-            {/* ================= JOTFORM SECTION ================= */}
-            <section ref={formSectionRef} className="py-24 bg-navy relative overflow-hidden" id="enrollment-form">
-                {/* Background Texture */}
-                <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, #C89B3C 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
-
-                <div className="container mx-auto px-4 relative z-10">
-                    <div className="bg-white rounded-2xl shadow-2xl overflow-hidden max-w-[900px] mx-auto">
-                        <div className="bg-gold/10 p-8 text-center border-b border-gold/20">
-                            <div className="mb-6 inline-block">
-                                <S3Logo size="4xl" variant="navy" showText={false} />
-                            </div>
-                            <h2 className="text-3xl md:text-4xl font-header italic uppercase text-navy tracking-tight mb-2">Student Application</h2>
-                            <p className="text-slate-600 font-medium">Complete the form below to begin.</p>
-                        </div>
-
-                        <div className="p-4 md:p-8 bg-white min-h-[600px]">
-                            {/* Jotform Embed Container */}
-                            <iframe
-                                id="JotFormIFrame-251464240626049"
-                                title="S3 Academy Enrollment form"
-                                onLoad={() => window.parent.scrollTo(0, 0)}
-                                allowTransparency={true}
-                                allow="geolocation; microphone; camera; fullscreen"
-                                src="https://form.jotform.com/251464240626049"
-                                frameBorder="0"
-                                style={{ minWidth: '100%', maxWidth: '100%', height: '800px', border: 'none' }}
-                                scrolling="yes"
-                            >
-                            </iframe>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {/* ================= ADMISSIONS PORTAL ================= */}
+            <div ref={formSectionRef} id="enrollment-form" className="w-full">
+                <AdmissionsPortal />
+            </div>
 
             {/* ================= TRUST SECTION ================= */}
             <section className="py-20 bg-slate-50 text-center">
