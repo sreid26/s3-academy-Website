@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { ReactNode } from 'react';
+import React, { useState, useEffect, ReactNode } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import { S3Logo } from './S3Logo';
@@ -173,9 +172,12 @@ export const Layout = ({ children }: LayoutProps) => {
 
                   {/* Social icons row stays below */}
                   <div className="flex gap-6 mt-6">
-                    {['instagram', 'youtube', 'facebook'].map(social => (
-                      <Icon key={social} icon={`simple-icons:${social}`} className="text-white/20 hover:text-gold cursor-pointer transition-colors" width="20" />
-                    ))}
+                    <a href="https://www.instagram.com/s3panthers/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                      <Icon icon="simple-icons:instagram" className="text-white/40 hover:text-gold cursor-pointer transition-colors" width="20" />
+                    </a>
+                    <a href="https://x.com/S3panthers" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                      <Icon icon="simple-icons:x" className="text-white/40 hover:text-gold cursor-pointer transition-colors" width="20" />
+                    </a>
                   </div>
                 </div>
               </div>

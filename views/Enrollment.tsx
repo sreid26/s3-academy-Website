@@ -3,6 +3,7 @@ import { Icon } from '@iconify/react';
 import { SkewedButton } from './components/SkewedButton';
 import { S3Logo } from './components/S3Logo';
 import AdmissionsPortal from './components/AdmissionsPortal';
+import RecruitmentWall from './components/RecruitmentWall';
 
 export const Enrollment: React.FC = () => {
     const formSectionRef = useRef<HTMLDivElement>(null);
@@ -130,6 +131,9 @@ export const Enrollment: React.FC = () => {
             <div ref={formSectionRef} id="enrollment-form" className="w-full">
                 <AdmissionsPortal />
             </div>
+
+            {/* ================= RECRUITMENT WALL ================= */}
+            <RecruitmentWall />
 
             {/* ================= TRUST SECTION ================= */}
             <section className="py-20 bg-slate-50 text-center">
