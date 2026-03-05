@@ -1,7 +1,7 @@
 import React, { useState, useMemo, Suspense } from 'react';
 import { Icon } from '@iconify/react';
 // Official S3 Academic Calendar 2025-2026 PDF
-const CALENDAR_PDF_URL = "/assets/docs/S3_Academic_Calendar_2025-2026.pdf";
+import CALENDAR_PDF_URL from '/assets/docs/S3_Academic_Calendar_2025-2026.pdf';
 
 // Lazy load the PDF modal to keep the main bundle light
 const CalendarPDFModal = React.lazy(() => import('./components/CalendarPDFModal').then(module => ({ default: module.CalendarPDFModal })));
