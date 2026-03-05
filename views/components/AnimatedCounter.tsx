@@ -18,10 +18,12 @@ export const AnimatedCounter = ({
     decimals = 0
 }: AnimatedCounterProps) => {
     const [count, setCount] = useState(0);
-    const countRef = useRef(null);
+    const [node, setNode] = useState(null as HTMLSpanElement | null);
     const hasAnimated = useRef(false);
 
     useEffect(() => {
+        if (!node) return;
+
         const observer = new IntersectionObserver(
             (entries) => {
                 if (entries[0].isIntersecting && !hasAnimated.current) {
@@ -51,17 +53,15 @@ export const AnimatedCounter = ({
             { threshold: 0.1 }
         );
 
-        if (countRef.current) {
-            observer.observe(countRef.current);
-        }
+        observer.observe(node);
 
         return () => observer.disconnect();
-    }, [end, duration, delay]);
+    }, [end, duration, delay, node]);
 
     const displayCount = decimals > 0 ? count.toFixed(decimals) : Math.floor(count).toString();
 
     return (
-        <span ref={countRef} className="tabular-nums">
+        <span ref={setNode} className="tabular-nums">
             {prefix}{displayCount}{suffix}
         </span>
     );
