@@ -35,7 +35,7 @@ const NewsBanner = () => {
                         <span className="font-sans text-gold font-bold uppercase tracking-[0.4em] text-[10px] md:text-xs mb-4 block">
                             Press & Updates
                         </span>
-                        <h2 className="s3-type-premium s3-section-title text-4xl md:text-6xl font-header font-bold uppercase tracking-tight leading-none">
+                        <h2 className="sectionHeadline">
                             In The News
                         </h2>
                         <div className="h-1 md:h-1.5 w-16 md:w-24 bg-gold mt-6"></div>

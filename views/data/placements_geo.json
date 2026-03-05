@@ -1,0 +1,116 @@
+[
+    {
+        "id": "ole-miss",
+        "schoolName": "Ole Miss",
+        "level": "D1",
+        "region": "Southeast",
+        "x": 61.5,
+        "y": 66.0
+    },
+    {
+        "id": "auburn",
+        "schoolName": "Auburn",
+        "level": "D1",
+        "region": "Southeast",
+        "x": 68.0,
+        "y": 71.0
+    },
+    {
+        "id": "tennessee-state",
+        "schoolName": "Tennessee State",
+        "level": "D1",
+        "region": "Southeast",
+        "x": 65.0,
+        "y": 60.0
+    },
+    {
+        "id": "nwfsc",
+        "schoolName": "Northwest Florida State",
+        "level": "JUCO",
+        "region": "Southeast",
+        "x": 68.0,
+        "y": 78.5
+    },
+    {
+        "id": "hofstra",
+        "schoolName": "Hofstra",
+        "level": "D1",
+        "region": "Northeast",
+        "x": 90.0,
+        "y": 28.0
+    },
+    {
+        "id": "stony-brook",
+        "schoolName": "Stony Brook",
+        "level": "D1",
+        "region": "Northeast",
+        "x": 91.0,
+        "y": 26.5
+    },
+    {
+        "id": "monroe",
+        "schoolName": "Monroe College",
+        "level": "JUCO",
+        "region": "Northeast",
+        "x": 88.5,
+        "y": 28.0
+    },
+    {
+        "id": "rutgers",
+        "schoolName": "Rutgers",
+        "level": "D1",
+        "region": "Northeast",
+        "x": 87.0,
+        "y": 32.0
+    },
+    {
+        "id": "stjohns",
+        "schoolName": "St. John's",
+        "level": "D1",
+        "region": "Northeast",
+        "x": 89.0,
+        "y": 29.0,
+        "placeholder": true
+    },
+    {
+        "id": "mt-st-marys",
+        "schoolName": "Mount St. Mary's",
+        "level": "D1",
+        "region": "Mid-Atlantic",
+        "x": 82.0,
+        "y": 37.0
+    },
+    {
+        "id": "harford",
+        "schoolName": "Harford CC",
+        "level": "JUCO",
+        "region": "Mid-Atlantic",
+        "x": 84.0,
+        "y": 38.5
+    },
+    {
+        "id": "wm",
+        "schoolName": "William & Mary",
+        "level": "D1",
+        "region": "Mid-Atlantic",
+        "x": 83.5,
+        "y": 44.0,
+        "placeholder": true
+    },
+    {
+        "id": "triton",
+        "schoolName": "Triton College",
+        "level": "JUCO",
+        "region": "Midwest",
+        "x": 64.0,
+        "y": 33.0
+    },
+    {
+        "id": "xavier",
+        "schoolName": "Xavier",
+        "level": "D1",
+        "region": "Midwest",
+        "x": 71.0,
+        "y": 44.0
+    }
+]

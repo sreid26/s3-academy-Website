@@ -3,20 +3,22 @@ import React, { useState, useEffect, useRef } from 'react';
 interface AnimatedCounterProps {
     end: number;
     duration?: number;
+    delay?: number;
     suffix?: string;
     prefix?: string;
     decimals?: number;
 }
 
-export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
+export const AnimatedCounter = ({
     end,
     duration = 2000,
+    delay = 0,
     suffix = '',
     prefix = '',
     decimals = 0
-}) => {
+}: AnimatedCounterProps) => {
     const [count, setCount] = useState(0);
-    const countRef = useRef<HTMLSpanElement>(null);
+    const countRef = useRef(null);
     const hasAnimated = useRef(false);
 
     useEffect(() => {
@@ -24,25 +26,26 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
             (entries) => {
                 if (entries[0].isIntersecting && !hasAnimated.current) {
                     hasAnimated.current = true;
-                    let startTime: number | null = null;
 
-                    const step = (timestamp: number) => {
-                        if (!startTime) startTime = timestamp;
-                        const progress = Math.min((timestamp - startTime) / duration, 1);
+                    setTimeout(() => {
+                        let startTime: number | null = null;
+                        const step = (timestamp: number) => {
+                            if (!startTime) startTime = timestamp;
+                            const progress = Math.min((timestamp - startTime) / duration, 1);
 
-                        // Ease out quad
-                        const easeProgress = progress * (2 - progress);
+                            // Ease out quartic for a premium, dramatic deceleration
+                            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
 
-                        setCount(end * easeProgress);
+                            setCount(end * easeOutQuart);
 
-                        if (progress < 1) {
-                            window.requestAnimationFrame(step);
-                        } else {
-                            setCount(end); // Ensure we hit the exact end number
-                        }
-                    };
-
-                    window.requestAnimationFrame(step);
+                            if (progress < 1) {
+                                window.requestAnimationFrame(step);
+                            } else {
+                                setCount(end);
+                            }
+                        };
+                        window.requestAnimationFrame(step);
+                    }, delay);
                 }
             },
             { threshold: 0.1 }
@@ -53,12 +56,12 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
         }
 
         return () => observer.disconnect();
-    }, [end, duration]);
+    }, [end, duration, delay]);
 
     const displayCount = decimals > 0 ? count.toFixed(decimals) : Math.floor(count).toString();
 
     return (
-        <span ref={countRef}>
+        <span ref={countRef} className="tabular-nums">
             {prefix}{displayCount}{suffix}
         </span>
     );

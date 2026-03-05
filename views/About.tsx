@@ -7,26 +7,26 @@ export const About: React.FC = () => {
       {/* ================= HERO SECTION ================= */}
       <section className="relative h-[60vh] flex items-center bg-navy overflow-hidden">
         <div className="absolute inset-0 opacity-40">
-          <img 
-            src="https://images.unsplash.com/photo-1504450758481-7338eba7524a?q=80&w=2069" 
-            alt="Shining Star Academy Gym" 
+          <img
+            src="https://images.unsplash.com/photo-1504450758481-7338eba7524a?q=80&w=2069"
+            alt="Shining Star Academy Gym"
             className="w-full h-full object-cover grayscale"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/60 to-transparent"></div>
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 lg:px-6">
+        <div className="relative z-10 container-custom">
           <h4 className="text-gold font-black uppercase tracking-[0.3em] mb-4">Establishing Excellence</h4>
-          <h1 className="text-6xl md:text-8xl font-header text-white italic tracking-tight leading-none uppercase">
+          <h1 className="pageDisplay">
             Beyond <span className="text-gold">The Game</span>
           </h1>
         </div>
       </section>
 
       {/* ================= WHO WE ARE ================= */}
-      <section className="py-24 container mx-auto px-4 lg:px-6">
+      <section className="py-24 container-custom">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-header italic tracking-tight mb-8 text-navy uppercase border-l-8 border-gold pl-6">Who We Are</h2>
+          <h2 className="sectionHeadline mb-8 border-l-8 border-gold pl-6">Who We Are</h2>
           <div className="space-y-8 text-xl text-slate-700 font-medium leading-relaxed">
             <p>
               S3 Academy (Shining Stars Sports Academy) is an independent private school serving grades 6-12 and a postgraduate year. We are dedicated to creating an environment where academic excellence and athletic achievement work hand in hand to develop well-rounded student-athletes.
@@ -44,11 +44,11 @@ export const About: React.FC = () => {
       {/* ================= SHINING STAR ACADEMY (Facility History) ================= */}
       <section className="py-24 bg-navy text-white overflow-hidden relative">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gold/5 transform skew-x-12 translate-x-1/2"></div>
-        <div className="container mx-auto px-4 lg:px-6 relative z-10">
+        <div className="container-custom relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h4 className="text-gold font-black uppercase tracking-widest mb-4">The Training Center</h4>
-              <h2 className="text-5xl font-header italic mb-8 uppercase">SHINING STAR ACADEMY</h2>
+              <h2 className="sectionHeadline mb-8">SHINING STAR ACADEMY</h2>
               <p className="text-slate-300 text-lg leading-relaxed mb-6 font-medium">
                 The home of the S3 Panthers, Shining Star Academy facility was founded on a simple principle: elite performance requires an elite environment. What started as a local training center has evolved into a nationally recognized laboratory for basketball excellence.
               </p>
@@ -58,9 +58,9 @@ export const About: React.FC = () => {
             </div>
             <div className="relative">
               <div className="absolute -inset-4 bg-gold/20 blur-3xl rounded-full"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=2090" 
-                alt="Shining Star Academy Facility" 
+              <img
+                src="https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=2090"
+                alt="Shining Star Academy Facility"
                 className="relative rounded shadow-2xl grayscale transition-all duration-700 hover:grayscale-0"
               />
             </div>
@@ -70,7 +70,7 @@ export const About: React.FC = () => {
 
       {/* ================= MISSION & VISION ================= */}
       <section className="py-24 bg-slate-50">
-        <div className="container mx-auto px-4 lg:px-6">
+        <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Mission Card */}
             <div className="bg-white p-12 rounded-xl border border-slate-200 shadow-sm transition-all hover:shadow-md">
@@ -92,9 +92,9 @@ export const About: React.FC = () => {
 
       {/* ================= THE THREE PILLARS ================= */}
       <section className="py-24 bg-white">
-        <div className="container mx-auto px-4 lg:px-6 text-center">
+        <div className="container-custom text-center">
           <div className="mb-16">
-            <h2 className="text-5xl md:text-6xl font-header italic tracking-tight text-navy uppercase">Our Three Pillars</h2>
+            <h2 className="sectionHeadline">Our Three Pillars</h2>
             <p className="text-slate-500 font-bold uppercase tracking-widest mt-4">The foundation of everything we do at S3 Academy</p>
           </div>
 
@@ -109,7 +109,7 @@ export const About: React.FC = () => {
                 We provide a rigorous college-preparatory curriculum that challenges students to think critically, develop strong study habits, and achieve academic excellence. Our small class sizes ensure personalized attention and support for every student-athlete.
               </p>
             </div>
-            
+
             {/* Athletics - Gold Circle */}
             <div className="bg-white p-10 rounded-xl border border-slate-100 shadow-sm flex flex-col items-center group hover:shadow-xl transition-all">
               <div className="w-24 h-24 bg-gold rounded-full flex items-center justify-center mb-8 shadow-xl group-hover:scale-110 transition-transform">
@@ -152,15 +152,15 @@ export const About: React.FC = () => {
           <Icon icon="solar:star-fall-bold-duotone" className="w-[800px] h-[800px]" />
         </div>
 
-        <div className="container mx-auto px-4 lg:px-6 relative z-10">
+        <div className="container-custom relative z-10">
           <h2 className="text-4xl md:text-6xl font-header italic uppercase tracking-tighter mb-12">
             Connect With <span className="text-gold">The Pack</span>
           </h2>
-          
+
           <div className="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-24">
             {/* Phone Module */}
-            <div 
-              className="group cursor-pointer" 
+            <div
+              className="group cursor-pointer"
               onClick={() => window.location.href = 'tel:8047322255'}
             >
               <div className="w-20 h-20 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-gold transition-all duration-300 shadow-[0_0_30px_rgba(200,155,60,0.1)] group-hover:shadow-[0_0_40px_rgba(200,155,60,0.3)]">
@@ -173,8 +173,8 @@ export const About: React.FC = () => {
             </div>
 
             {/* Email Module */}
-            <div 
-              className="group cursor-pointer" 
+            <div
+              className="group cursor-pointer"
               onClick={() => window.location.href = 'mailto:info@s3academy.com'}
             >
               <div className="w-20 h-20 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-gold transition-all duration-300 shadow-[0_0_30px_rgba(200,155,60,0.1)] group-hover:shadow-[0_0_40px_rgba(200,155,60,0.3)]">
@@ -186,7 +186,7 @@ export const About: React.FC = () => {
               </p>
             </div>
           </div>
-          
+
           <div className="mt-16 pt-16 border-t border-white/5 max-w-lg mx-auto">
             <p className="text-slate-500 text-sm font-medium italic">
               Our admissions team is ready to guide you through the process of joining Virginia's elite basketball leadership program.

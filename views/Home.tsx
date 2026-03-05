@@ -8,6 +8,7 @@ import { ParallaxTour } from './components/ParallaxTour';
 import { AnimatedCounter } from './components/AnimatedCounter';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { placementsData, getLogoUrl, Placement, CollegeLogoImage } from './Alumni';
+import { VideoModal } from './components/VideoModal';
 
 function getD1LogoStrip(alumni: Placement[]) {
   const map = new Map<string, { logo: string; domain: string }>();
@@ -71,6 +72,7 @@ const TiltCard = ({ children, className = '', key }: { children: any, className?
 export const Home = () => {
   const [scrollY, setScrollY] = useState(0);
   const [activeCategory, setActiveCategory] = useState('All');
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const revealRef = useScrollReveal();
 
   useEffect(() => {
@@ -133,34 +135,16 @@ export const Home = () => {
               />
             </div>
           </div>
-          <span className="font-sans text-gold/90 font-bold uppercase tracking-[0.4em] md:tracking-[0.6em] text-[10px] md:text-xs mb-6 block">
-            The Future of Elite Performance
+          <span className="text-gold font-bold uppercase tracking-[0.4em] md:tracking-[0.6em] text-[10px] md:text-[11px] mb-6 block drop-shadow-md">
+            Engineering The Next Generation
           </span>
-          <h1 className="displayHeadline text-white text-[4rem] md:text-[6.5rem] lg:text-[9rem] mb-6 md:mb-8 flex flex-col items-center">
-            <div className="relative inline-block tracking-[-0.02em] transform -skew-x-[12deg] drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] [-webkit-text-stroke:1px_rgba(255,255,255,0.3)] mb-1 md:mb-2 lg:mb-3">
-              Scholars
-            </div>
-            <div className="text-gold relative inline-block tracking-[-0.02em] transform -skew-x-[12deg] drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] [-webkit-text-stroke:1px_rgba(255,255,255,0.3)] mb-1 md:mb-2 lg:mb-3">
-              Champions
-            </div>
-            <div className="relative inline-block tracking-[-0.02em] transform -skew-x-[12deg] drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] [-webkit-text-stroke:1px_rgba(255,255,255,0.3)]">
-              Leaders
-            </div>
+          <h1 className="displayHeadline flex flex-col items-center mb-6 md:mb-10 drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
+            <span className="block">Where <span className="text-gold">Scholars</span></span>
+            <span className="block">Become Champions</span>
           </h1>
-          <p className="s3-type-premium s3-hero-subcopy font-sans text-white/95 text-base md:text-lg lg:text-xl font-medium max-w-[560px] md:max-w-[620px] mx-auto mb-3 leading-relaxed tracking-wide md:mt-12">
-            Integrating elite collegiate academic standards with professional-grade athletic performance.
+          <p className="bodyText text-white/95 text-base md:text-lg lg:text-xl font-medium max-w-[560px] md:max-w-[620px] mx-auto mb-3 drop-shadow-md tracking-wide">
+            Integrating elite collegiate academic standards with <br className="hidden md:block" /> professional-grade athletic performance.
           </p>
-          <p className="font-sans text-gold bg-navy/40 backdrop-blur-sm border border-gold/20 rounded-full px-5 py-2 inline-block text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] shadow-lg mb-6 mx-auto">
-            National-level academics + professional-grade basketball development.
-          </p>
-
-          <div className="font-sans flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 mb-10 md:mb-12 text-white/60 font-semibold uppercase tracking-[0.25em] text-[8.5px] md:text-[10px]">
-            <span>100% College Placement</span>
-            <span className="hidden md:inline w-1 h-1 bg-gold/50 rounded-full mx-1"></span>
-            <span>85+ D1 Scholarships</span>
-            <span className="hidden md:inline w-1 h-1 bg-gold/50 rounded-full mx-1"></span>
-            <span>3.94 Avg GPA</span>
-          </div>
 
           {/* Hero CTAs Wrapper */}
           <div className="flex flex-col items-center justify-center w-full mt-6 z-20 relative">
@@ -204,18 +188,36 @@ export const Home = () => {
             </div>
 
             <div className="flex relative w-full overflow-hidden group/marquee mt-2 mask-edges">
-              <div className="flex items-center gap-x-12 md:gap-x-20 animate-marquee whitespace-nowrap hover:[animation-play-state:paused] opacity-70 hover:opacity-100 transition-opacity duration-500">
-                {/* Ensure continuous marquee by cloning array 3 times */}
-                {[...getD1LogoStrip(placementsData), ...getD1LogoStrip(placementsData), ...getD1LogoStrip(placementsData)].map((x, i) => (
-                  <CollegeLogoImage
-                    key={`${x.college} -${i} `}
-                    domain={x.domain}
-                    alt={`${x.college} logo`}
-                    className="h-[36px] md:h-[42px] max-w-[150px] object-contain filter brightness-0 invert opacity-80 hover:brightness-100 hover:invert-0 hover:opacity-100 hover:scale-110 hover:-translate-y-1 transition-all duration-300 inline-block shrink-0 px-2"
-                    hideOnFallback={true}
-                    disableFaviconFallback={true}
-                  />
-                ))}
+              <div className="flex animate-marquee whitespace-nowrap hover:[animation-play-state:paused] opacity-70 hover:opacity-100 transition-opacity duration-500 will-change-transform">
+
+                {/* Track A */}
+                <div className="flex items-center gap-x-12 md:gap-x-20 pr-12 md:pr-20 min-w-max">
+                  {[...getD1LogoStrip(placementsData), ...getD1LogoStrip(placementsData)].map((x, i) => (
+                    <CollegeLogoImage
+                      key={`A-${x.college}-${i}`}
+                      domain={x.domain}
+                      alt={`${x.college} logo`}
+                      className="h-[36px] md:h-[42px] w-[100px] md:w-[120px] object-contain filter brightness-0 invert opacity-80 hover:brightness-100 hover:invert-0 hover:opacity-100 hover:scale-110 hover:-translate-y-1 transition-all duration-300 inline-block shrink-0 px-2"
+                      hideOnFallback={true}
+                      disableFaviconFallback={true}
+                    />
+                  ))}
+                </div>
+
+                {/* Track B */}
+                <div className="flex items-center gap-x-12 md:gap-x-20 pr-12 md:pr-20 min-w-max" aria-hidden="true">
+                  {[...getD1LogoStrip(placementsData), ...getD1LogoStrip(placementsData)].map((x, i) => (
+                    <CollegeLogoImage
+                      key={`B-${x.college}-${i}`}
+                      domain={x.domain}
+                      alt={`${x.college} logo`}
+                      className="h-[36px] md:h-[42px] w-[100px] md:w-[120px] object-contain filter brightness-0 invert opacity-80 hover:brightness-100 hover:invert-0 hover:opacity-100 hover:scale-110 hover:-translate-y-1 transition-all duration-300 inline-block shrink-0 px-2"
+                      hideOnFallback={true}
+                      disableFaviconFallback={true}
+                    />
+                  ))}
+                </div>
+
               </div>
             </div>
           </div>
@@ -226,12 +228,127 @@ export const Home = () => {
         <div className="absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-navy to-transparent pointer-events-none hidden md:block"></div>
       </section >
 
-      {/* 3) WHY S3 (4 PILLARS) */}
+      {/* 3) EXPERIENCE S3 */}
+      <section className="py-16 md:py-24 bg-white relative overflow-hidden">
+        <div className="container-tight relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left Column: Copy & CTAs */}
+            <div className="reveal-on-scroll">
+              <span className="font-sans text-gold font-bold uppercase tracking-[0.4em] text-[10px] md:text-xs mb-4 block">EXPERIENCE S3</span>
+              <h2 className="sectionHeadline mb-6">Take a 2–3 minute campus tour</h2>
+              <p className="bodyText text-lg md:text-xl font-medium mb-8">
+                A day in the life at S3 Academy—academics, training, culture, and the pipeline to the next level.
+              </p>
+
+              <ul className="space-y-6 mb-10">
+                <li className="flex items-start">
+                  <div className="mt-1 mr-4 shrink-0 bg-navy/5 p-2 rounded-lg text-gold shadow-sm ring-1 ring-slate-200">
+                    <Icon icon="solar:diploma-verified-bold-duotone" className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-sans font-bold text-navy mb-1.5 uppercase tracking-wide text-sm">Academics Built for College Readiness</h4>
+                    <p className="bodyText text-sm">Small-class support, accountability, and high standards that travel with our athletes.</p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <div className="mt-1 mr-4 shrink-0 bg-navy/5 p-2 rounded-lg text-gold shadow-sm ring-1 ring-slate-200">
+                    <Icon icon="solar:basketball-bold-duotone" className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-sans font-bold text-navy mb-1.5 uppercase tracking-wide text-sm">Professional-Grade Basketball Development</h4>
+                    <p className="bodyText text-sm">Skill work, strength & conditioning, and performance tracking designed for the next level.</p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <div className="mt-1 mr-4 shrink-0 bg-navy/5 p-2 rounded-lg text-gold shadow-sm ring-1 ring-slate-200">
+                    <Icon icon="solar:map-arrow-up-bold-duotone" className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-sans font-bold text-navy mb-1.5 uppercase tracking-wide text-sm">Placement Support That Doesn’t Guess</h4>
+                    <p className="bodyText text-sm">Recruiting guidance, film strategy, exposure planning, and a network that opens doors.</p>
+                  </div>
+                </li>
+              </ul>
+
+              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-2">
+                <button
+                  onClick={() => setIsVideoModalOpen(true)}
+                  className="inline-flex items-center justify-center px-8 py-3.5 font-black uppercase tracking-widest text-[#0B1D3A] bg-[#C89B3C] transform -skew-x-[15deg] transition-all hover:bg-[#d4a849] hover:-translate-y-0.5 shadow-md w-full sm:w-auto"
+                >
+                  <span className="transform skew-x-[15deg] flex items-center justify-center gap-2">
+                    <Icon icon="solar:play-circle-bold" className="w-5 h-5 shrink-0" />
+                    Watch Tour
+                  </span>
+                </button>
+                <Link
+                  to="/alumni"
+                  className="inline-flex items-center justify-center px-8 py-3.5 font-black uppercase tracking-widest text-[#0B1D3A] border-2 border-slate-200 bg-white transform -skew-x-[15deg] transition-all hover:bg-slate-50 hover:border-slate-300 shadow-sm w-full sm:w-auto"
+                >
+                  <span className="transform skew-x-[15deg]">Explore Alumni Outcomes</span>
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column: Premium Video Card */}
+            <div className="reveal-on-scroll delay-200">
+              <TiltCard>
+                <div
+                  className="relative w-full aspect-video rounded-2xl overflow-hidden group cursor-pointer shadow-[0_20px_40px_rgba(11,29,58,0.12)] ring-1 ring-slate-200/60"
+                  onClick={() => setIsVideoModalOpen(true)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label="Open video tour"
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      setIsVideoModalOpen(true);
+                    }
+                  }}
+                >
+                  <img
+                    src="https://img.youtube.com/vi/Gz1QEMtVZ9A/maxresdefault.jpg"
+                    alt="S3 Academy Campus Tour Thumbnail"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  {/* Overlay Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/20 to-transparent pointer-events-none transition-opacity duration-300 group-hover:opacity-90"></div>
+
+                  {/* Pill */}
+                  <div className="absolute top-4 lg:top-6 left-4 lg:left-6 bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20 pointer-events-none">
+                    <span className="font-sans font-bold uppercase tracking-widest text-[10px] text-white select-none">CAMPUS TOUR</span>
+                  </div>
+
+                  {/* Center Play Button Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div className="w-16 h-16 md:w-20 md:h-20 bg-gold/90 backdrop-blur-sm rounded-full flex items-center justify-center text-navy shadow-[0_0_30px_rgba(200,155,60,0.5)] transform transition-transform duration-300 group-hover:scale-110 group-hover:bg-gold ring-4 ring-white/10 group-hover:ring-white/20">
+                      <Icon icon="solar:play-bold" className="w-8 h-8 md:w-10 md:h-10 ml-1.5" />
+                    </div>
+                  </div>
+
+                  {/* Bottom Text Area */}
+                  <div className="absolute bottom-4 lg:bottom-6 left-4 lg:left-6 right-4 lg:right-6 pointer-events-none">
+                    <h3 className="font-header font-bold text-2xl md:text-3xl text-white uppercase tracking-wider drop-shadow-md mb-1 break-words leading-none">Watch Tour</h3>
+                    <p className="font-sans text-white/90 text-[13px] md:text-sm font-medium tracking-wide">2–3 minutes &bull; Day in the life</p>
+                  </div>
+                </div>
+              </TiltCard>
+              <div className="text-center mt-5">
+                <a href="https://youtu.be/Gz1QEMtVZ9A" target="_blank" rel="noopener noreferrer" className="font-sans font-bold text-[11px] uppercase tracking-widest text-slate-400 hover:text-navy transition-colors inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full hover:bg-slate-100/50">
+                  <Icon icon="solar:link-circle-linear" className="w-4 h-4 shrink-0" />
+                  Watch on YouTube
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4) WHY S3 (4 PILLARS) */}
       <section id="why-s3-section" className="py-16 md:py-24 bg-offWhite scroll-mt-24" >
         <div className="container-tight">
           <div className="text-center mb-16 md:mb-20 px-4 reveal-on-scroll">
             <span className="font-sans text-gold font-bold uppercase tracking-[0.4em] text-[10px] md:text-xs mb-4 block">The S3 Standard</span>
-            <h2 className="s3-type-premium s3-section-title text-4xl md:text-5xl lg:text-6xl font-header font-bold uppercase tracking-tight leading-none mb-6">WHY S3 ACADEMY</h2>
+            <h2 className="sectionHeadline mb-6">WHY S3 ACADEMY</h2>
             <div className="h-1 lg:h-1.5 w-16 lg:w-24 bg-gold mx-auto relative overflow-hidden animate-draw-line mb-8">
               <div className="absolute inset-y-0 right-0 w-2 bg-navy -skew-x-12 transform origin-right translate-x-1"></div>
             </div>
@@ -338,7 +455,7 @@ export const Home = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-10 px-4 gap-6 reveal-on-scroll">
             <div>
               <span className="font-sans text-gold font-bold uppercase tracking-[0.4em] text-[10px] md:text-xs mb-4 block">For Students & Families</span>
-              <h2 className="s3-type-premium s3-section-title text-4xl md:text-5xl lg:text-6xl font-header font-bold uppercase tracking-tight leading-none">Everyday Essentials</h2>
+              <h2 className="sectionHeadline">Everyday Essentials</h2>
               <div className="h-1 md:h-1.5 w-16 md:w-24 bg-gold mt-6 animate-draw-line origin-left"></div>
             </div>
             {/* Elevated CTA for essentials */}
@@ -458,7 +575,7 @@ export const Home = () => {
         <div className="container-tight">
           <div className="text-center mb-16 md:mb-20 px-4 reveal-on-scroll">
             <span className="font-sans text-gold font-bold uppercase tracking-[0.4em] text-[10px] md:text-xs mb-4 block">Alumni Outcomes</span>
-            <h2 className="s3-type-premium s3-section-title text-navy text-4xl md:text-5xl lg:text-6xl font-header font-bold uppercase tracking-tight leading-tight mb-6">This is a Pipeline to College</h2>
+            <h2 className="sectionHeadline mb-6">This is a Pipeline to College</h2>
             <div className="h-1 lg:h-1.5 w-16 lg:w-24 bg-gold mx-auto relative overflow-hidden animate-draw-line">
               <div className="absolute inset-y-0 right-0 w-2 bg-navy -skew-x-12 transform origin-right translate-x-1"></div>
             </div>
@@ -529,7 +646,7 @@ export const Home = () => {
         < div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gold/5 blur-[120px] rounded-full pointer-events-none" ></div >
 
         <div className="container-tight relative z-10 px-4 reveal-on-scroll">
-          <h2 className="s3-type-premium s3-section-title text-5xl md:text-7xl lg:text-8xl font-header font-bold leading-none uppercase tracking-tight mb-6 drop-shadow-lg">
+          <h2 className="sectionHeadline mb-6 drop-shadow-lg">
             READY TO JOIN <br className="md:hidden" /><span className="text-gold">S3 ACADEMY?</span>
           </h2>
           <p className="font-sans text-white/90 text-lg md:text-xl font-medium max-w-2xl mx-auto mb-12 leading-relaxed">
@@ -560,6 +677,13 @@ export const Home = () => {
           </div>
         </div>
       </section >
+
+      {/* Floating Video Modal */}
+      <VideoModal
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+        videoId="Gz1QEMtVZ9A"
+      />
 
     </div >
   );

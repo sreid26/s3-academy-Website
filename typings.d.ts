@@ -7,6 +7,21 @@ declare module 'react-helmet-async';
 declare module '@iconify/react';
 declare module 'puppeteer';
 
+declare module '*.webp' {
+    const src: string;
+    export default src;
+}
+
+declare module '*.png' {
+    const src: string;
+    export default src;
+}
+
+declare module '*.jpg' {
+    const src: string;
+    export default src;
+}
+
 // Global namespace for React to support JSX
 declare namespace React {
     // Allow any prop on any element

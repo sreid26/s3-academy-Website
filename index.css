@@ -18,15 +18,6 @@
   body {
     @apply font-sans antialiased text-navy bg-offWhite;
   }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-header font-black uppercase leading-none;
-  }
 }
 
 @layer components {
@@ -42,8 +33,9 @@
     @apply inline-flex items-center justify-center text-gold font-bold uppercase tracking-widest transition-all duration-300 hover:text-white focus-visible:outline-none focus-visible:underline;
   }
 
-  .container-tight {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  .container-tight,
+  .container-custom {
+    @apply w-full max-w-[1280px] mx-auto px-6 md:px-10;
   }
 
   .logo-glow {
@@ -167,19 +159,89 @@
   .s3-hero-headline {
     text-shadow: var(--s3-shadow-hero);
   }
+}
 
-  /* SCOPED HERO HEADLINE EFFECT */
-  /* Apply ONLY to hero H1s (Home, Admissions, Basketball, Academics) */
-  .heroDisplay {
-    @apply font-header font-black uppercase italic tracking-tighter leading-none;
-    text-shadow: var(--s3-shadow-hero);
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
-    text-rendering: geometricPrecision;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+/* End of @layer components (temporarily) */
+
+/* === STRICT TYPOGRAPHY TOKENS (Unlayered for max specificity) === */
+
+/* .displayHeadline: The massive, dramatic, shadowy, italicized look for Hero H1s ONLY */
+.displayHeadline {
+  font-family: 'Antonio', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-style: italic;
+  line-height: 1;
+  color: white;
+  letter-spacing: -0.05em;
+  font-size: clamp(56px, 8vw, 110px);
+  text-shadow: var(--s3-shadow-hero);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* .sectionHeadline: Clean, strong, non-italic headers for major sections (H2s) */
+.sectionHeadline {
+  font-family: 'Antonio', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  font-size: clamp(32px, 5vw, 64px);
+}
+
+/* .pageDisplay: Bold, premium, non-italicized H1s for non-hero pages (e.g., Calendar, Alumni) */
+.pageDisplay {
+  font-family: 'Antonio', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  color: white;
+  font-size: clamp(36px, 6vw, 84px);
+  text-shadow: var(--s3-shadow-hero);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05);
+}
+
+/* .pageTitle: Standard page header sizes. */
+.pageTitle {
+  font-family: 'Antonio', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  font-size: 2.25rem;
+}
+
+@media (min-width: 768px) {
+  .pageTitle {
+    font-size: 3rem;
   }
+}
 
-  /* Use for section titles on light backgrounds (subtle) - Deprecated, use sectionHeadline for pure typography */
+/* .bodyText: Highly readable body text ensuring Inter/Sans overrides any rogue inherited styles */
+.bodyText {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
+  line-height: 1.625;
+  color: #475569;
+}
+
+/* .uiText: Used for buttons, small labels, pills, tags */
+.uiText {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 11px;
+  color: var(--navy);
+}
+
+@layer components {
+
+  /* Deprecated: Use sectionTitle instead */
   .s3-section-title {
     text-shadow: var(--s3-shadow-title);
   }
@@ -264,18 +326,18 @@
   /* Infinite Marquee Animation for Placed At */
   @keyframes marquee {
     0% {
-      transform: translateX(0);
+      transform: translate3d(0, 0, 0);
     }
 
     100% {
-      transform: translateX(-33.3333%);
-      /* Scroll exactly 1 set of the 3 identical sets */
+      transform: translate3d(-50%, 0, 0);
     }
   }
 
   .animate-marquee {
     animation: marquee 25s linear infinite;
-    display: inline-flex;
+    display: flex;
     will-change: transform;
+    min-width: 200%;
   }
 }

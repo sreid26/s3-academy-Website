@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
 import { SkewedButton } from './components/SkewedButton';
+import BoyTeamImg from '../public/students/S3BoyTeam.jpg';
+import GirlTeamImg from '../public/students/S3GirlTeam.jpg';
 
 const S3_BRAND = {
   navy: '#0B1D3A',
@@ -75,8 +77,8 @@ export const Donate = () => {
   const amounts = ['$25', '$50', '$100', 'Custom'];
 
   const heroImages = [
-    '/students/S3BoyTeam.jpg',
-    '/students/S3GirlTeam.jpg'
+    BoyTeamImg,
+    GirlTeamImg
   ];
 
   React.useEffect(() => {
@@ -100,6 +102,7 @@ export const Donate = () => {
               src={src}
               alt="S3 Academy Team"
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'}`}
+              style={{ objectPosition: index === 0 ? '50% 10%' : '50% 20%' }}
             />
           ))}
 
@@ -115,13 +118,13 @@ export const Donate = () => {
             </h4>
 
             {/* Main Headline */}
-            <h1 className="text-4xl md:text-7xl lg:text-[7rem] font-header text-white uppercase italic tracking-tighter leading-none mb-2 md:mb-4 drop-shadow-2xl px-4">
+            <h1 className="pageDisplay mb-2 md:mb-4 px-4">
               Fuel the <br className="md:hidden" /> <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#C89B3C] via-[#FFD700] to-[#C89B3C] drop-shadow-sm pr-8 pb-2">Dream</span>
             </h1>
 
             {/* Subtext and Button */}
             <div className="flex flex-col items-center gap-3 md:gap-6">
-              <p className="text-slate-300 max-w-2xl mx-auto text-xs md:text-xl font-medium leading-relaxed drop-shadow-md hidden md:block">
+              <p className="s3-type-premium s3-hero-subcopy text-slate-300 max-w-2xl mx-auto text-xs md:text-xl font-medium leading-relaxed hidden md:block">
                 Your support builds the future for our student-athletes.
               </p>
 
@@ -137,7 +140,7 @@ export const Donate = () => {
       <section className="py-24 max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h4 className="text-gold font-black uppercase tracking-[0.4em] mb-4 text-sm">Giving Priorities</h4>
-          <h2 className="text-6xl md:text-7xl font-header leading-none uppercase tracking-tight">
+          <h2 className="sectionHeadline">
             CHOOSE WHERE TO <br />
             <span className="text-gold">MAKE AN IMPACT</span>
           </h2>
@@ -180,10 +183,10 @@ export const Donate = () => {
 
       {/* ================= CORPORATE SPONSORSHIP PACKAGES ================= */}
       <section className="py-24 bg-offWhite text-navy">
-        <div className="container-tight px-4">
+        <div className="container-custom">
           <div className="text-center mb-16">
             <h4 className="text-gold font-black uppercase tracking-[0.4em] mb-4 text-sm">Partnership Opportunities</h4>
-            <h2 className="text-5xl md:text-7xl font-header leading-none uppercase tracking-tight mb-6">Corporate <br /><span className="text-gold">Sponsorships</span></h2>
+            <h2 className="sectionHeadline mb-6">Corporate <br /><span className="text-gold">Sponsorships</span></h2>
             <p className="text-slate-500 font-medium italic text-lg max-w-2xl mx-auto">Align your brand with excellence and support the next generation of leaders and champions.</p>
           </div>
 
@@ -295,7 +298,7 @@ export const Donate = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div>
-            <h2 className="text-5xl md:text-7xl font-header uppercase italic tracking-tighter mb-8 leading-none">
+            <h2 className="sectionHeadline mb-8">
               Individual <br /> <span className="text-gold">Contributions</span>
             </h2>
             <div className="bg-[#152438] p-8 rounded-xl border-l-8 border-gold mb-10 shadow-xl">
@@ -388,7 +391,7 @@ export const Donate = () => {
       <section className="bg-[#0B1A2A] py-32">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-header uppercase italic tracking-tighter">Support Options</h2>
+            <h2 className="sectionHeadline">Support Options</h2>
             <div className="h-1 w-20 bg-gold mx-auto mt-4"></div>
           </div>
 
@@ -447,7 +450,7 @@ export const Donate = () => {
       <section className="py-32 bg-slate-50 text-navy">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <Icon icon="solar:chat-round-dots-bold-duotone" className="text-gold mx-auto mb-8 opacity-40" width="80" aria-hidden="true" />
-          <h2 className="text-5xl md:text-7xl font-header uppercase italic tracking-tighter mb-4">QUESTIONS ABOUT GIVING?</h2>
+          <h2 className="sectionHeadline mb-4">QUESTIONS ABOUT GIVING?</h2>
           <div className="h-1.5 w-24 bg-gold mx-auto mb-10"></div>
           <p className="text-slate-500 font-medium text-2xl mb-14 italic max-w-2xl mx-auto">Our Development Office is here to help. Reach out to discuss your giving options.</p>
 

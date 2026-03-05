@@ -104,7 +104,7 @@ export const FeaturedAlumniSpotlight = ({ placements, onSelectAthlete }: Feature
                     <span className="font-sans text-gold font-bold uppercase tracking-[0.4em] text-[10px] md:text-xs mb-3 block">
                         Global Success Stories
                     </span>
-                    <h2 className="s3-type-premium s3-section-title text-3xl md:text-4xl lg:text-5xl font-header uppercase italic tracking-tight">
+                    <h2 className="sectionHeadline">
                         Featured Alumni Spotlight
                     </h2>
                 </div>

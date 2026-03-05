@@ -29,20 +29,20 @@ export const Admissions: React.FC = () => {
           </div>
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 lg:px-6 text-center">
+        <div className="relative z-10 container-custom text-center">
           <div className="mb-8 inline-block bg-white/5 p-5 rounded-full backdrop-blur-md border border-white/10">
             <S3Logo size="xl" showText={false} variant="gold" />
           </div>
           <h4 className="text-gold font-black uppercase tracking-[0.5em] mb-4 text-[10px] md:text-sm">Start Your Journey</h4>
-          <h1 id="admissions-hero-title" className="heroDisplay text-white mb-4">JOIN THE <span className="text-gold">PACK</span></h1>
+          <h1 id="admissions-hero-title" className="displayHeadline text-white mb-4">JOIN THE <span className="text-gold">PACK</span></h1>
         </div>
       </section>
 
       {/* Enrollment Path */}
-      <section className="py-24 container mx-auto px-4 lg:px-6" aria-labelledby="path-title">
+      <section className="py-24 container-custom" aria-labelledby="path-title">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           <div className="lg:col-span-8">
-            <h2 id="path-title" className="s3-type-premium s3-section-title text-4xl md:text-6xl font-header italic mb-12 uppercase border-l-8 border-gold pl-6">The Path to Panther</h2>
+            <h2 id="path-title" className="sectionHeadline mb-12 border-l-8 border-gold pl-6">The Path to Panther</h2>
             <div className="space-y-10" role="list">
               {[
                 { step: "01", title: "Online Inquiry", desc: "Express your interest. Share academic transcripts and athletic highlights with our scouts.", icon: "solar:pen-new-square-bold-duotone" },
@@ -119,9 +119,9 @@ export const Admissions: React.FC = () => {
 
       {/* Investment Information */}
       <section className="py-24 bg-slate-100" aria-labelledby="investment-title">
-        <div className="container mx-auto px-4 lg:px-6">
+        <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center mb-20">
-            <h2 id="investment-title" className="s3-type-premium s3-section-title text-5xl md:text-7xl font-header italic mb-6 uppercase tracking-tight">Investment in Excellence</h2>
+            <h2 id="investment-title" className="sectionHeadline mb-6">Investment in Excellence</h2>
             <div className="h-1.5 w-24 bg-gold mx-auto mb-8"></div>
             <p className="text-slate-600 font-medium italic text-xl">"Athleticism is a gift, but hard work is a requirement." We are committed to accessibility through merit and need-based scholarships.</p>
           </div>

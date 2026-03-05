@@ -13,18 +13,18 @@ export const Contact: React.FC = () => {
           <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #C0A062 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
         </div>
 
-        <div className="container mx-auto px-4 lg:px-6 relative z-10">
-          <h1 className="text-6xl md:text-8xl italic uppercase font-header">CONTACT US</h1>
+        <div className="container-custom relative z-10">
+          <h1 className="pageDisplay">CONTACT US</h1>
           <p className="text-gold tracking-[0.5em] font-bold text-sm">REACH OUT TO S3 ACADEMY</p>
         </div>
       </div>
 
       <section className="py-24">
-        <div className="container mx-auto px-4 lg:px-6 grid grid-cols-1 md:grid-cols-2 gap-20">
+        <div className="container-custom grid grid-cols-1 md:grid-cols-2 gap-20">
           {/* Inquiry Form */}
           <div className="bg-slate-50 p-12 border border-slate-200 shadow-sm relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 -translate-y-16 translate-x-16 rotate-45"></div>
-            <h2 className="text-4xl text-navy mb-8 italic font-header">DIRECT INQUIRY</h2>
+            <h2 className="sectionHeadline mb-8">DIRECT INQUIRY</h2>
             <form className="space-y-6 relative z-10">
               <div className="grid grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -60,7 +60,7 @@ export const Contact: React.FC = () => {
           {/* Contact Info & High-Fidelity Placeholder */}
           <div className="flex flex-col">
             <div className="mb-12">
-              <h2 className="text-4xl text-navy mb-8 italic font-header uppercase">FACILITY LOCATION</h2>
+              <h2 className="sectionHeadline mb-8">FACILITY LOCATION</h2>
               <div className="space-y-8">
                 <div className="flex gap-6 group">
                   <div className="w-12 h-12 bg-gold/10 flex items-center justify-center rounded-sm transition-colors group-hover:bg-gold/20">

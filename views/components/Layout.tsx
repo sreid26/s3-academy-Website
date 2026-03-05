@@ -1,15 +1,17 @@
-import React, { useState, useEffect, ReactNode } from 'react';
+import React, { useState, useEffect } from 'react';
+import type { ReactNode } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import { S3Logo } from './S3Logo';
 
 interface LayoutProps {
-  children: ReactNode;
+  children: any;
 }
 
 const navItems = [
   // Removed Home as requested for desktop
   { path: '/academics', label: 'Academics' },
+  { path: '/calendar', label: 'Calendar' },
   { path: '/basketball', label: 'Basketball' },
   { path: '/admissions', label: 'Admissions' },
   { path: '/faculty', label: 'Faculty & Coaches' },
@@ -38,6 +40,18 @@ export const Layout = ({ children }: LayoutProps) => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
+
   const GAP_CLASS = "gap-6 lg:gap-8";
 
   return (
@@ -47,7 +61,7 @@ export const Layout = ({ children }: LayoutProps) => {
         className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${scrolled ? 'bg-navy/95 backdrop-blur-md h-[40px] md:h-[84px] shadow-xl py-2' : 'bg-navy h-[80px] md:h-[94px]'
           } border-b border-white/10 flex items-center`}
       >
-        <div className={`container-tight w-full flex items-center ${GAP_CLASS} px-4`}>
+        <div className={`container-custom flex items-center ${GAP_CLASS} `}>
 
           {/* Logo Section */}
           <Link to="/" className="cursor-pointer group flex-shrink-0">
@@ -89,7 +103,7 @@ export const Layout = ({ children }: LayoutProps) => {
           <div className="xl:hidden ml-auto flex items-center gap-4">
             <Link
               to="/enrollment"
-              className="bg-gold text-navy text-[10px] font-black uppercase tracking-widest py-2 px-4 rounded-full shadow-lg active:scale-95 transition-transform"
+              className="bg-gold text-navy text-[10px] font-black uppercase tracking-widest py-2  rounded-full shadow-lg active:scale-95 transition-transform"
             >
               APPLY
             </Link>
@@ -106,7 +120,13 @@ export const Layout = ({ children }: LayoutProps) => {
         {/* Mobile Dropdown */}
         {isMenuOpen && (
           <div className="xl:hidden bg-navy absolute top-full w-full left-0 border-b border-white/10 p-6 md:p-8 flex flex-col gap-4 md:gap-5 animate-fade-in shadow-2xl backdrop-blur-xl h-[calc(100vh-80px)] overflow-y-auto">
-            <NavLink to="/" className="text-xl md:text-2xl font-header uppercase tracking-widest text-left text-white hover:text-gold block py-2 border-b border-white/5">
+            <NavLink
+              to="/"
+              className={({ isActive }) => `
+                text-xl md:text-2xl font-header uppercase tracking-widest text-left block py-2 border-b border-white/5
+                ${isActive && location.pathname === '/' ? 'text-gold' : 'text-white hover:text-gold'}
+              `}
+            >
               Home
             </NavLink>
             {navItems.map((item) => (
@@ -138,7 +158,7 @@ export const Layout = ({ children }: LayoutProps) => {
 
       {/* Footer */}
       <footer className="bg-[color:var(--navy)] text-white font-sans">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl  sm:px-6 lg:px-8">
           {/* TOP GRID */}
           <div className="py-14">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-y-12 gap-x-12 items-start">
@@ -187,6 +207,7 @@ export const Layout = ({ children }: LayoutProps) => {
                 <h4 className="text-gold font-bold uppercase tracking-[0.2em] text-xs mb-5">The Academy</h4>
                 <ul className="space-y-4 text-sm text-white/50 font-medium">
                   <li><Link to="/academics" className="hover:text-white cursor-pointer transition-colors">Curriculum</Link></li>
+                  <li><Link to="/calendar" className="hover:text-white cursor-pointer transition-colors">Academic Calendar</Link></li>
                   <li><Link to="/basketball" className="hover:text-white cursor-pointer transition-colors">Performance Lab</Link></li>
                   <li><Link to="/faculty" className="hover:text-white cursor-pointer transition-colors">Our Faculty</Link></li>
                 </ul>

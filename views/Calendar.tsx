@@ -109,7 +109,7 @@ const Calendar = () => {
                                 Updated: Feb 2026
                             </span>
                         </div>
-                        <h1 className="s3-type-premium s3-section-title text-4xl md:text-6xl mb-4 font-header uppercase italic tracking-tight">
+                        <h1 className="sectionHeadline mb-4">
                             Academic Calendar
                         </h1>
                         <p className="text-slate-500 font-medium max-w-xl">

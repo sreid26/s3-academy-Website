@@ -70,7 +70,7 @@ const AcademicImageBox = ({
       {isComingSoon && (
         <div className="absolute inset-0 flex items-center justify-center z-30">
           <div className="border-2 border-gold/40 bg-navy/60 backdrop-blur-sm px-8 py-4 -rotate-12">
-            <span className="s3-type-premium s3-section-title text-4xl md:text-6xl font-header text-gold uppercase tracking-[0.2em] italic">COMING 2026</span>
+            <span className="sectionHeadline text-gold tracking-[0.2em]">COMING 2026</span>
           </div>
         </div>
       )}
@@ -119,7 +119,7 @@ export const Academics = () => {
             The Foundation
           </h4>
 
-          <h1 className="s3-type-premium s3-hero-headline text-6xl md:text-8xl lg:text-[9rem] font-header text-white uppercase italic tracking-tighter leading-none mb-8">
+          <h1 className="pageDisplay mb-8">
             Academic <span className="text-gold relative inline-block">
               Excellence
               <span className="absolute -bottom-2 left-0 w-full h-2 md:h-3 bg-gold transform -skew-x-12 shadow-[0_0_20px_rgba(200,155,60,0.6)]"></span>
@@ -149,7 +149,7 @@ export const Academics = () => {
           {/* Middle School */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="order-2 lg:order-1">
-              <h2 className="s3-type-premium s3-section-title text-5xl font-header uppercase italic tracking-tight mb-8 border-l-8 border-gold pl-8">
+              <h2 className="sectionHeadline mb-8 border-l-8 border-gold pl-8">
                 Middle School <span className="text-slate-400 block text-2xl mt-2 tracking-widest font-body font-black">(Grades 6-8)</span>
               </h2>
               <p className="text-lg text-slate-600 font-medium leading-relaxed">
@@ -167,7 +167,7 @@ export const Academics = () => {
               <AcademicImageBox src={IMAGES.highSchool} alt="High School" label="S3-HS" position="left" />
             </div>
             <div className="order-2">
-              <h2 className="s3-type-premium s3-section-title text-5xl font-header uppercase italic tracking-tight mb-8 border-l-8 border-gold pl-8">
+              <h2 className="sectionHeadline mb-8 border-l-8 border-gold pl-8">
                 High School <span className="text-slate-400 block text-2xl mt-2 tracking-widest font-body font-black">(Grades 9-12)</span>
               </h2>
               <p className="text-lg text-slate-600 font-medium leading-relaxed">
@@ -182,7 +182,7 @@ export const Academics = () => {
               <div className="mb-4 inline-block bg-gold/10 px-4 py-1 border border-gold/30">
                 <span className="text-[10px] font-black uppercase tracking-[0.4em] text-gold">Roadmap: 2026</span>
               </div>
-              <h2 className="s3-type-premium s3-section-title text-5xl font-header uppercase italic tracking-tight mb-8 border-l-8 border-gold pl-8">
+              <h2 className="sectionHeadline mb-8 border-l-8 border-gold pl-8">
                 Postgraduate <br /><span className="text-gold">Program</span> <span className="text-slate-400 block text-2xl mt-2 tracking-widest font-body font-black italic">(COMING SOON)</span>
               </h2>
               <p className="text-lg text-slate-600 font-medium leading-relaxed italic">
@@ -213,7 +213,7 @@ export const Academics = () => {
       <section className="py-32 bg-slate-50 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-24">
           <h4 className="text-gold font-black uppercase tracking-[0.5em] mb-4">Panther Mentorship</h4>
-          <h2 className="s3-type-premium s3-section-title text-6xl md:text-7xl font-header uppercase italic tracking-tighter text-navy">Support for Student-Athletes</h2>
+          <h2 className="sectionHeadline">Support for Student-Athletes</h2>
           <div className="h-1.5 w-32 mx-auto mt-6 bg-gold"></div>
         </div>
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -237,7 +237,7 @@ export const Academics = () => {
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gold/5 transform skew-x-12 translate-x-1/2"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-24 relative z-10">
           <h4 className="text-gold font-black uppercase tracking-[0.4em] mb-4">Engineering the Future</h4>
-          <h2 className="s3-type-premium s3-section-title text-6xl md:text-7xl font-header uppercase italic tracking-tighter">College Preparation</h2>
+          <h2 className="sectionHeadline">College Preparation</h2>
           <div className="h-1.5 w-32 mx-auto mt-6 bg-gold"></div>
         </div>
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10 relative z-10">
@@ -257,7 +257,7 @@ export const Academics = () => {
       {/* ================= PHILOSOPHY BANNER ================= */}
       <section className="py-24 text-center px-4 bg-gold">
         <div className="max-w-5xl mx-auto">
-          <h2 className="s3-type-premium s3-section-title text-4xl md:text-6xl font-header uppercase italic tracking-tighter text-navy leading-none">
+          <h2 className="sectionHeadline">
             "ATHLETICISM IS A GIFT, BUT <span className="bg-navy text-gold px-4 py-1 inline-block mt-2 shadow-2xl">HARD WORK IS A REQUIREMENT.</span>"
           </h2>
           <p className="mt-8 font-black uppercase tracking-[0.6em] text-xs text-navy/60">

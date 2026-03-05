@@ -3,10 +3,9 @@ import { Icon } from '@iconify/react';
 import { SkewedButton } from './components/SkewedButton';
 import { S3Logo } from './components/S3Logo';
 import AdmissionsPortal from './components/AdmissionsPortal';
-import RecruitmentWall from './components/RecruitmentWall';
 
-export const Enrollment: React.FC = () => {
-    const formSectionRef = useRef<HTMLDivElement>(null);
+export const Enrollment = () => {
+    const formSectionRef = useRef<any>(null);
 
     const scrollToForm = () => {
         formSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -29,16 +28,16 @@ export const Enrollment: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/50 to-navy/80"></div>
                 </div>
 
-                <div className="relative z-10 container mx-auto px-4 text-center">
+                <div className="relative z-10 container-custom text-center">
                     <div className="mb-6 inline-block animate-fade-in-down">
                         <S3Logo size="4xl" showText={false} variant="gold" />
                     </div>
 
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-header italic uppercase tracking-tighter leading-none mb-6 drop-shadow-2xl animate-fade-in-up">
+                    <h1 className="pageDisplay mb-6 animate-fade-in-up">
                         Begin Your <span className="text-gold">Journey</span>
                     </h1>
 
-                    <p className="text-slate-300 text-lg md:text-2xl font-medium max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-lg animate-fade-in-up delay-100">
+                    <p className="s3-type-premium s3-hero-subcopy text-slate-300 text-lg md:text-2xl font-medium max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up delay-100">
                         Where Academic Excellence Meets Elite Athletic Development.
                     </p>
 
@@ -56,9 +55,9 @@ export const Enrollment: React.FC = () => {
 
             {/* ================= WHY ENROLL AT S3 ================= */}
             <section className="py-24 bg-white relative">
-                <div className="container mx-auto px-4 lg:px-6">
+                <div className="container-custom">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-header italic uppercase text-navy tracking-tight mb-4">Why Choose S3 Academy?</h2>
+                        <h2 className="sectionHeadline mb-4">Why Choose S3 Academy?</h2>
                         <div className="h-1 w-20 bg-gold mx-auto"></div>
                     </div>
 
@@ -95,10 +94,10 @@ export const Enrollment: React.FC = () => {
 
             {/* ================= ENROLLMENT PROCESS ================= */}
             <section className="py-24 bg-slate-50 border-y border-slate-200">
-                <div className="container mx-auto px-4 lg:px-6">
+                <div className="container-custom">
                     <div className="text-center mb-20">
                         <h4 className="text-gold font-black uppercase tracking-[0.4em] text-xs mb-2">The Roadmap</h4>
-                        <h2 className="text-4xl md:text-5xl font-header italic uppercase text-navy tracking-tight">Enrollment Process</h2>
+                        <h2 className="sectionHeadline">Enrollment Process</h2>
                     </div>
 
                     <div className="relative">
@@ -132,12 +131,10 @@ export const Enrollment: React.FC = () => {
                 <AdmissionsPortal />
             </div>
 
-            {/* ================= RECRUITMENT WALL ================= */}
-            <RecruitmentWall />
 
             {/* ================= TRUST SECTION ================= */}
             <section className="py-20 bg-slate-50 text-center">
-                <div className="container mx-auto px-4">
+                <div className="container-custom">
                     <h3 className="text-2xl md:text-3xl font-header italic uppercase text-slate-400 tracking-widest mb-12">Trusted by families preparing for collegiate success</h3>
 
                     <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">

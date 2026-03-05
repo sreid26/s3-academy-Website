@@ -11,8 +11,9 @@ import { Academics } from './views/Academics';
 import { Alumni } from './views/Alumni';
 import { Donate } from './views/Donate';
 import { Enrollment } from './views/Enrollment';
+import Calendar from './views/Calendar';
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <BrowserRouter>
       <Layout>
@@ -20,6 +21,7 @@ const App: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/academics" element={<Academics />} />
+          <Route path="/calendar" element={<Calendar />} />
           <Route path="/basketball" element={<Basketball />} />
           <Route path="/admissions" element={<Admissions />} />
           <Route path="/faculty" element={<Faculty />} />

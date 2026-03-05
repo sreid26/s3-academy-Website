@@ -35,7 +35,7 @@ export const Basketball: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
           <div>
             <h4 className="text-gold font-bold uppercase tracking-[0.5em] text-xs mb-6">Built for the Next Level</h4>
-            <h2 className="s3-type-premium s3-section-title text-6xl md:text-8xl font-header italic uppercase mb-8">
+            <h2 className="sectionHeadline mb-8">
               Elite <br /> <span className="text-gold">Development</span>
             </h2>
             <p className="text-slate-500 text-lg leading-relaxed font-medium italic mb-12 border-l-4 border-gold pl-8">
@@ -81,7 +81,7 @@ export const Basketball: React.FC = () => {
       {/* CTA Section */}
       <section className="py-24 bg-gold text-navy text-center">
         <div className="container-custom">
-          <h2 className="s3-type-premium s3-section-title text-5xl md:text-8xl font-header italic uppercase mb-10">
+          <h2 className="sectionHeadline mb-10">
             Ready to <span className="bg-navy text-white px-8 py-2 inline-block shadow-2xl">Step Up?</span>
           </h2>
           <button className="text-[12px] font-black uppercase tracking-[0.6em] hover:underline transition-all">
