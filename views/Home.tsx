@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Icon } from '@iconify/react';
+import './icons-bundle'; // Pre-load Experience S3 SVG icons offline
 import { Link } from 'react-router-dom';
 import { S3Logo } from './components/S3Logo';
 import { SEO } from './components/SEO';
