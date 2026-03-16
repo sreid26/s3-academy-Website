@@ -23,11 +23,11 @@ const AdmissionsPortal = () => {
                         title="S3 Academy Enrollment Form"
                         onLoad={() => window.scrollTo(0, 0)}
                         allowTransparency={true}
+                        allowFullScreen={true}
                         loading="lazy"
-                        referrerPolicy="strict-origin-when-cross-origin"
-                        sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-top-navigation-by-user-activation"
                         src="https://form.jotform.com/251464240626049"
-                        className="w-full min-h-[800px] border-none bg-white"
+                        className="w-full h-screen min-h-[850px] border-none bg-white rounded-xl"
+                        style={{ border: 'none' }}
                     />
                 </div>
 
