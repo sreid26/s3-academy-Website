@@ -15,7 +15,8 @@ const ROUTES = [
     '/faculty',
     '/alumni',
     '/donate',
-    '/contact'
+    '/contact',
+    '/enrollment'
 ];
 
 const PORT = 4173; // Vite preview port by default
