@@ -25,8 +25,8 @@ const AdmissionsPortal = () => {
                         allowTransparency={true}
                         allowFullScreen={true}
                         loading="lazy"
-                        src="https://form.jotform.com/251464240626049"
-                        className="w-full h-screen min-h-[850px] border-none bg-white rounded-xl"
+                        src="https://form.jotform.com/251464240626049?iframe=1"
+                        className="w-full h-screen min-h-[1100px] border-none bg-white rounded-xl"
                         style={{ border: 'none' }}
                     />
                 </div>
